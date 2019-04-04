@@ -12,6 +12,6 @@ install:
 script:
   - pycodestyle src/*py --ignore=E501
   - pytest
-  - pytest-cov
+  - pytest --cov=handler
 after_success:
   - coveralls
