@@ -10,9 +10,9 @@ python:
 install:
   - pip install -r requirements_dev.txt
 script:
+  - pytest src/test_*.py --cov=handler --cov-fail-under=100
   - pycodestyle src/*py --ignore=E501
-  - pytest
-  - pytest --cov=handler
+  - aws cloudformation validate-template --template-body file://cf.yaml
 after_success:
   - coveralls
 before_deploy: aws cloudformation package --template-file cf.yaml --s3-bucket ${BUCKET_NAME} --output-template-file out.yaml
