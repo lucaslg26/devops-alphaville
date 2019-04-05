@@ -7,6 +7,7 @@ Resources:
   API:
     Type: AWS::Serverless::Api
     Properties:
+      DefinitionUri: swagger.yml
 
   geohash:
     Type: AWS::Serverless::Function
