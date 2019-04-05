@@ -7,8 +7,12 @@ Resources:
   API:
     Type: AWS::Serverless::Api
     Properties:
-      DefinitionUri: swagger.yml
-
+      StageName: Dev
+      DefinitionUri: ./swagger.yml
   geohash:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: GeoHashFunction
+      Runtime: python3.6
+      Handler: function.handler
+      CodeUri: ./src
