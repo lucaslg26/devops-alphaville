@@ -52,7 +52,7 @@ def test_handler_success(mocker):
     }
 
     coordinates = {"latitude": 37.857713, "longitude": -122.544543}
-    url = 'https://www.google.com/maps/place/37.857713,-122.544543'
+    url = 'http://www.google.com/maps/place/37.857713,-122.544543'
     body = {
         'coordinates': coordinates,
         'url': url
