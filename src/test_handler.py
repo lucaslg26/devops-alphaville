@@ -23,6 +23,10 @@ def test_geohash_no_date():
         assert handler.geohash(37.421542, -122.085589, None) is None
 
 
+def test_validate_url_nok_hash():
+    assert handler.validate_url('http://#') is False
+
+
 def test_handler_invalid_url(mocker):
     mocker.patch.object(handler, 'validate_url')
     i = {
@@ -52,7 +56,7 @@ def test_handler_success(mocker):
     }
 
     coordinates = {"latitude": 37.857713, "longitude": -122.544543}
-    url = 'http://www.google.com/maps/place/37.857713,-122.544543'
+    url = 'https://www.google.com/maps/place/37.857713,-122.544543'
     body = {
         'coordinates': coordinates,
         'url': url
