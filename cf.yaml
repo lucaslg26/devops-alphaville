@@ -69,3 +69,15 @@ Resources:
       Runtime: python3.6
       Handler: function.handler
       CodeUri: ./src
+      Events:
+        geohash:
+          Type: Api
+          Properties:
+            Path: /geohash
+            Method: get
+            RestApiId: !Ref API
+
+Outputs:
+  API:
+    Value: !Ref API.Stage
+
